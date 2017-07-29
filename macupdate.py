@@ -31,7 +31,7 @@ ___  ___  ___  _____    _____ _____
 | |_| | |   | |/ /| | | || | | |___| |\ \          
  \___/\_|   |___/ \_| |_/\_/ \____/\_| \_|         
                   
-                   1.2                                 
+                   1.3                                 
 
 """)
 	print("Created by eLVee")
@@ -46,6 +46,8 @@ optional arguments:
   -i    Install Homebrew and brew MAS (Mac Apple Store) so you can use the script.
   -u.   Update Homebrew, update brew MAS, update OSX and update M.A.S.
   -h.   Show this help message and exit
+  -s    Enable/Disable SSH on a mac.
+  -i    Setup a static ip on a mac.
 """
 
 	Text()
@@ -63,10 +65,38 @@ optional arguments:
 		elif argument[1] == "-h":
 			print(usage)
 			exit()
-		elif argument[1] is not "-i" or "-u" or "-h":
+		elif argument[1] == "-s":
+			while True:
+				ssh = input("Do you want to enable/disable? e/d: ")
+				if ssh == "e":
+					subprocess.call("sudo systemsetup -f -setremotelogin on", shell=True)
+					print("SSh was enabled")
+					print("-"*60)
+					print("")
+					break
+				elif ssh == "d":
+					subprocess.call("sudo systemsetup -f -setremotelogon off", shell=True)
+					print("SSH was disabled.")
+					print("-"*60)
+					print("")
+					break
+				else:
+					print("Error: wrong input. Please enter e/d")
+		elif argument[1] == "-i":
+			ip = input("Please enter the ip you want to give this mac: ")
+			subprocess.call("sudo ipconfig set en1 INFORM "+ip, shell=True)
+			print("Changed the ip to: "+ip)
+			print("-"*60)
+			print("")
+		elif argument[1] is not "-i" or "-u" or "-h" or "-s" or "-i":
 			print(usage)
 			exit()
+
 	except IndexError:
+		print("-"*60)
+		print("Error: No 2nd argument added. See the usage below:")
+		print("-"*60)
+		print("")
 		print(usage)
 		exit()
 
