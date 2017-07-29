@@ -1,7 +1,7 @@
-# MacUpdate
-Macupdate script created in python3
+# macupdate.py
+Macupdate script created in python3. Now version 1.3
 
-## MacUpdate.py
+## macupdate.py
 usage: python3 macupdate.py [-i] [-u] [-h]
 
 optional arguments:
@@ -12,5 +12,6 @@ optional arguments:
   
   -h.   Show this help message and exit
 
+## Good to know
 This script is fully automated to take care of updating a mac (especially handy if you you need to update more than one.
 If SSH is enabled on the mac you want to update you can run the script remotely.
