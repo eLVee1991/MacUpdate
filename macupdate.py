@@ -47,7 +47,7 @@ optional arguments:
   -u.   Update Homebrew, update brew MAS, update OSX and update M.A.S.
   -h.   Show this help message and exit
   -s    Enable/Disable SSH on a mac.
-  -i    Setup a static ip on a mac.
+  -ip    Setup a static ip on a mac.
 """
 
 	Text()
@@ -82,13 +82,13 @@ optional arguments:
 					break
 				else:
 					print("Error: wrong input. Please enter e/d")
-		elif argument[1] == "-i":
+		elif argument[1] == "-ip":
 			ip = input("Please enter the ip you want to give this mac: ")
 			subprocess.call("sudo ipconfig set en1 INFORM "+ip, shell=True)
 			print("Changed the ip to: "+ip)
 			print("-"*60)
 			print("")
-		elif argument[1] is not "-i" or "-u" or "-h" or "-s" or "-i":
+		elif argument[1] is not "-i" or "-u" or "-h" or "-s" or "-ip":
 			print(usage)
 			exit()
 
