@@ -2,7 +2,8 @@
 Macupdate script created in python3. Now version 1.3
 
 ## macupdate.py
-usage: python3 macupdate.py [-i] [-u] [-h]
+usage: python3 macupdate.py [-i] [-u] [-h] [-s] [-ip]
+
 
 optional arguments:
 
@@ -11,6 +12,11 @@ optional arguments:
   -u.   Update Homebrew, update brew MAS, update OSX and update M.A.S.
   
   -h.   Show this help message and exit
+  
+  -s    Enable/Disable SSH on a mac.
+  
+  -ip    Setup a static ip on a mac.
+
 
 ## Good to know
 This script is fully automated to take care of updating a mac (especially handy if you you need to update more than one.
