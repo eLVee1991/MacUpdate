@@ -1,5 +1,5 @@
-# macupdate.py
-Macupdate script created in python3. Now version 1.3
+# macupdate.py & controller.py
+Macupdate script created in python3. This script will automatically update the mac to the newest software version and all the appstore apps (the ones bought with your current logged in apple ID that is). Now version 1.3
 
 ## macupdate.py
 usage: python3 macupdate.py [-i] [-u] [-h] [-s] [-ip]
@@ -18,6 +18,17 @@ optional arguments:
   -ip    Setup a static ip on a mac.
 
 
-## Good to know
-This script is fully automated to take care of updating a mac (especially handy if you you need to update more than one.
-If SSH is enabled on the mac you want to update you can run the script remotely.
+# controller.py
+This script will let you install/update/run the macupdate.py script on an SSH enabled machine. Just add the ip's of the macs  ip's in the connections_list []. It will ask you for the script 
+
+## controller.py
+usage: python3 controller.py [-i] [-u] [-g]
+
+
+optional arguments:
+
+-i.   Run the install script of macupdate.py via SSH.
+  
+-u.   Run the update script of macupdate.py via SSH.
+  
+-g    Update the script from github via SSH.
