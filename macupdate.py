@@ -40,7 +40,7 @@ ___  ___  ___  _____    _____ _____
 
 def Main():
 	usage = """
-usage: python3 macupdate.py [-i] [-u] [-h]
+usage: python3 macupdate.py [-i] [-u] [-h] [-s] [-ip]
 
 optional arguments:
   -i    Install Homebrew and brew MAS (Mac Apple Store) so you can use the script.
