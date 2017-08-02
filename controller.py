@@ -96,7 +96,7 @@ def Update_Git():
 Want to clone or pull for github reposity? c/p: """)
             if cloneorpull == "c":
                 for connection in connection_list:
-                    username = "elvee"
+                    username = input("Fill in the username: ")
                     s = pxssh.pxssh()
                     s.login(connection, username, password)
                     s.sendline('cd Desktop')   # run a command
@@ -115,9 +115,9 @@ Want to clone or pull for github reposity? c/p: """)
                 print("Done with all connections.")
                 print("-"*60)
                 break
-            if cloneorpull == "p":
+            elif cloneorpull == "p":
                 for connection in connection_list:
-                    username = "elvee"
+                    username = input("Fill in the username: ")
                     s = pxssh.pxssh()
                     s.login(connection, username, password)
                     s.sendline('cd Desktop/MacUpdate')   # run a command
@@ -134,6 +134,11 @@ Want to clone or pull for github reposity? c/p: """)
                 print("Done with all connections.")
                 print("-"*60)
                 break
+            else:
+                print("-"*60)
+                print("Error: please enter c or p)
+                print("-"*60)
+                
     except pxssh.ExceptionPxssh as e:
         print("-"*60)
         print("pxssh failed on login.")
@@ -181,7 +186,7 @@ def MacUpdate_Update():
     print("-"*60)
     try:
         for connection in connection_list:
-            username = "elvee"
+            username = input("Fill in the username: ")
             s = pxssh.pxssh()
             s.login(connection, username, password)
             s.sendline('cd Desktop/Macupdate')   # run a command
