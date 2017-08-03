@@ -39,6 +39,7 @@ ___  ___  ___  _____    _____ _____
 	print("")
   	print("see my github account:")
   	print("https://github.com/eLVee1991/MacUpdate")
+	print("-"*60)
 
 def Main():
 	usage = """
