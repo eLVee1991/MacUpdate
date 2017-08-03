@@ -37,8 +37,8 @@ ___  ___  ___  _____    _____ _____
 	print("Created by eLVee")
 	print("-"*60)
 	print("")
-  print("see my github account:")
-  print("https://github.com/eLVee1991/MacUpdate")
+  	print("see my github account:")
+  	print("https://github.com/eLVee1991/MacUpdate")
 
 def Main():
 	usage = """
