@@ -68,10 +68,10 @@ def Mac_Update():
 	while True:
 		try:
 			import pexpect
-			## Uncomment the 3 lines below if you are running the script on it's own. Not the SSH controller.
+			## Comment the 3 lines below if you are running the script on it's own. Not the SSH controller.
 			#Run the command in the terminal before running the script.
-			#print("Please enter your password here to be able to install/update: ")
-			#password = getpass.getpass()
+			print("Please enter your password here to be able to install/update: ")
+			password = getpass.getpass()
 			print("-"*60)
 			command_1 = pexpect.spawnu('sudo softwareupdate -ia --verbose')
 			#command_1.interact()
