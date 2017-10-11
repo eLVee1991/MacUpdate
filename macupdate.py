@@ -33,13 +33,13 @@ optional arguments:
 			while True:
 				ssh = input("Do you want to enable/disable? e/d: ")
 				if ssh == "e":
-					subprocess.call("sudo systemsetup -f -setremotelogin on", shell=True)
+					subprocess.Popen("sudo systemsetup -f -setremotelogin on", shell=True)
 					print("SSh was enabled")
 					print("-"*60)
 					print("")
 					break
 				elif ssh == "d":
-					subprocess.call("sudo systemsetup -f -setremotelogon off", shell=True)
+					subprocess.Popen("sudo systemsetup -f -setremotelogon off", shell=True)
 					print("SSH was disabled.")
 					print("-"*60)
 					print("")
@@ -48,7 +48,7 @@ optional arguments:
 					print("Error: wrong input. Please enter e/d")
 		elif argument[1] == "-ip":
 			ip = input("Please enter the ip you want to give this mac: ")
-			subprocess.call("sudo ipconfig set en1 INFORM "+ip, shell=True)
+			subprocess.Popen("sudo ipconfig set en1 INFORM "+ip, shell=True)
 			print("Changed the ip to: "+ip)
 			print("-"*60)
 			print("")
@@ -92,7 +92,7 @@ def Mac_Update():
 				print("The python module 'pexpect' is needed for this script to work.")
 				module = input("Do you want to install pexpect now? y/n: ")
 				if module == "y":
-					subprocess.call("pip3 install pexpect", shell=True)
+					subprocess.Popen("pip3 install pexpect", shell=True)
 					print("Done installing pexpect")
 					print("Please run the script again.")
 					print("-"*60)
@@ -149,19 +149,19 @@ def Install_Homebrew():
 	print("Running script for installing Homebrew for Mac")
 	print("")
 	command_2 = '''/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'''
-	subprocess.call(command_2, shell=True)
+	subprocess.Popen(command_2, shell=True)
 	print("Done installing Homebrew")
 	print("-"*60)
 	print("")
 
 def Update_Homebrew():
 	print("Installing update of homebrew.")
-	subprocess.call("brew update", shell=True)
+	subprocess.Popen("brew update", shell=True)
 	print("-"*60)
 	print("")
 
 def Install_Mas():
-	subprocess.call("brew install mas", shell=True)
+	subprocess.Popen("brew install mas", shell=True)
 	print("MAS (Mac Apple Store) package installed.")
 	print("-"*60)
 	print("")
@@ -169,9 +169,9 @@ def Install_Mas():
 def Update_AppleStore():
 	print("Running MAS (Mac Apple Store) updater")
 	print("Showing outdated apps.")
-	subprocess.call('mas outdated', shell=True)
+	subprocess.Popen('mas outdated', shell=True)
 	print("Updating the apps now..")
-	subprocess.call('mas upgrade', shell=True)	
+	subprocess.Popen('mas upgrade', shell=True)	
 	print("Done updating Apple Store apps")
 	print("-"*60)
 	print("")
