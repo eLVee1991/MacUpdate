@@ -168,7 +168,7 @@ usage: python findapp.py [-a] [-v] [-b]
 optional arguments:
   -a   Creates a list named 'filtered_apps.txt' in the current dir.
   -v.  Creates a list named 'app_version.txt' in the current dir.
-  -l.  Show this help message and exit
+  -h.  Show this help message and exit
 
 """)
 		exit()
