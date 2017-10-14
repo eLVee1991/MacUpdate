@@ -133,43 +133,38 @@ def Main():
 
 	message("underline", '''
 version 1.0
-
 Created by eLVee & rickdaalhuizen
 ''')
 	argument = sys.argv
 	try:
 		if argument[1]== "-a":
 			filtered_apps()
-			message('success', "[+] Checking for OSX preinstalled apps in: " + apps_dir + " and removing them from the list")
+			message('success', "[+] Checking for OSX preinstalled apps in " + apps_dir + " and removing them from the list")
 			message('success', "[+] Here's a list of all the NOT preinstalled apps in " + apps_dir + ":")
 			for apps in filtered_list:
 				print(apps.rstrip())
 		elif argument[1] == "-v":
 			filtered_apps()
-			message("success", "[+] Checking version numbers of OSX (if any):")
+			message("success", "[+] Checking version numbers of applications in " + apps_dir + " (if any):")
 			find_version()
 			for versions in version_list:
 				print(versions.rstrip())
 		elif argument[1] == "-h":
 			message("warning", """
-
 usage: python findapp.py [-a] [-v] [-b]
 optional arguments:
   -a   Creates a list named 'filtered_apps.txt' in the current dir.
   -v.  Creates a list named 'app_version.txt' in the current dir.
   -h.  Show this help message and exit
-
 """)
 			exit()
 	except IndexError:
 		message("warning", """
-
 usage: python findapp.py [-a] [-v] [-b]
 optional arguments:
   -a   Creates a list named 'filtered_apps.txt' in the current dir.
   -v.  Creates a list named 'app_version.txt' in the current dir.
   -h.  Show this help message and exit
-
 """)
 		exit()
 
