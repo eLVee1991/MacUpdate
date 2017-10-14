@@ -100,7 +100,7 @@ def filtered_apps():
 	print("")
 
 # 1. Reading the output_apps file.
-# 2. Checking the plist for 'CFBundleShortVersionString' aka application version.
+# 2. Checking the plist for 'CFBundleShortVersionString' aka application version. If no plist info is available it's left blank
 # 3. Returning the version number if possible
 def find_version():
 	global version_list
