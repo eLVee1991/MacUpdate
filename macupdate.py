@@ -150,7 +150,7 @@ def Update_AppleStore():
 	print("Showing outdated apps.")
 	subprocess.Popen('mas outdated', shell=True)
 	print("Updating the apps now..")
-	subprocess.call('mas upgrade', shell=True)	
+	subprocess.Popen('mas upgrade', shell=True)	
 	print("Done updating Apple Store apps")
 	print("-"*60)
 	print("")
