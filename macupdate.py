@@ -118,7 +118,9 @@ def Text():
 	 MM MM MM AA   AA CC       OO   OO  SSSSS  
 	 MM    MM AAAAAAA CC    C  OO   OO      SS 
 	 MM    MM AA   AA  CCCCC    OOOO0   SSSSS  
-                                          
+	 
+			    and
+	 
   AAA   PPPPPP  PPPPPP   SSSSS  TTTTTTT  OOOOO  RRRRRR  EEEEEEE 
  AAAAA  PP   PP PP   PP SS        TTT   OO   OO RR   RR EE      
 AA   AA PPPPPP  PPPPPP   SSSSS    TTT   OO   OO RRRRRR  EEEEE   
