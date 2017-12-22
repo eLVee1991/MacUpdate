@@ -1,5 +1,5 @@
 # macupdate.py & controller.py
-Macupdate script created in python3. This script will automatically update the mac to the newest software version and all the appstore apps (the ones bought with your current logged in apple ID that is). Now version 1.3
+Macupdate script created in python. This script will automatically update the mac to the newest software version and all the appstore apps (the ones bought with your current logged in apple ID that is). Now version 1.5
 
 ## macupdate.py
 usage: python macupdate.py [-i] [-u] [-h] [-s]
