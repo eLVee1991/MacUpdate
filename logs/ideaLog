@@ -1,0 +1,11 @@
+"""
+to Do:
+- een whenHasFileLastBeenOpened script schrijven die checkt of de file eerder geopend is dan 
+is de logfile geregistreerd staat.
+Daarnaast ook functie schrijven die checkt wanneer de run.log voor het laatst geopend is, 
+zodat er een dubbele checkt onstaat.
+
+- eventueel werken met shelf module ipv open(read/write) in cryptor.py
+- create part that enables pexpect ssh connection.
+
+"""
