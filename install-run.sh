@@ -18,10 +18,10 @@ echo ""
 echo "Running macupdate.py -i to install the dependencies on the mac"
 echo ""
 echo "-------------------------------------------------------------"
-python macupdate.py -i
+python MacUpdate/macupdate.py -i
 echo "-------------------------------------------------------------"
 echo "Running macupdate.py -u to update the mac and App Store apps"
 echo ""
 echo "-------------------------------------------------------------"
-python macupdate.py -u
+python MacUpdate/macupdate.py -u
 echo "-------------------------------------------------------------"
