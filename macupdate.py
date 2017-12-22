@@ -9,8 +9,6 @@ from modules.messageColor import message
 from modules.inStaller import *
 from modules.upDater import *
 from modules.cryptor import ifExist, notExist
-from getpass import getpass
-
 
 def Main():
 	usage = """
