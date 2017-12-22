@@ -2,8 +2,7 @@
 Macupdate script created in python3. This script will automatically update the mac to the newest software version and all the appstore apps (the ones bought with your current logged in apple ID that is). Now version 1.3
 
 ## macupdate.py
-usage: python3 macupdate.py [-i] [-u] [-h] [-s] [-ip]
-
+usage: python macupdate.py [-i] [-u] [-h] [-s]
 
 optional arguments:
 
@@ -13,9 +12,7 @@ optional arguments:
   
   -h.   Show this help message and exit
   
-  -s    Enable/Disable SSH on a mac.
-  
-  -ip    Setup a static ip on a mac.
+  -s 	Run macupdate.py on another mac
 
 
 # controller.py
