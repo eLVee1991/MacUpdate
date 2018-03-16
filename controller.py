@@ -1,6 +1,7 @@
 from pexpect import pxssh
 import subprocess
 import sys
+import getpass
 from modules.messageColor import message
 
 def Main():
@@ -22,6 +23,7 @@ optional arguments:
 		if arg[1] == "-c" and arg[4] == "-i":
 			message("succes", "[+] Connecting to "+username+"@"+ip+" to run macupdate.py script (script must be installed!)")
 			child = pxssh.pxssh()
+			password = getpass.getpass()
 			child.login(ip, username, password)
 			message("succes", "[+] Updating your mac. Please wait.")
 			child.sendline("python macupdate.py -i")
@@ -70,3 +72,4 @@ if __name__ == "__main__":
 	Text()
 	message("succes", "[+] The script will continue to run now")
 	Main()
+
