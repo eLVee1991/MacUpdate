@@ -3,21 +3,6 @@ import subprocess
 import sys
 from modules.messageColor import message
 
-
-"""
-- sshcontroler aanpassen naar een autoconnect via ssh (keychain onthouden en toevoegen aan servers CMD+K)
-als sshcontroler werkt, dan zorgen dat de keys.enc en gen.enc gehost staan op de sshserver en via ssh
-worden verstuurd, zodat daar alleen het wachtwoord staat. En nergerns anders. Tot slot cronjob van maken, zodat hij
-het automatisch verstuurd.
-
-
-- IPV SSH kan je ook een server, en client aanmaken....
-
-
-- een optie argv. -e toevoegen om een encryptie bestand aan te maken, lostaant van het macupdate script.
-"""
-
-
 def Main():
 	usage = """
 usage: python controller.py [-c] user ip [-i (for install) or -u (for update)] 
