@@ -2,9 +2,7 @@ from pexpect import pxssh
 import subprocess
 import sys
 from modules.messageColor import message
-from modules.inStaller import *
-from modules.upDater import *
-from modules.cryptor import ifExist
+from modules.cryptor import updateScriptExist
 
 
 """
@@ -20,24 +18,10 @@ het automatisch verstuurd.
 - een optie argv. -e toevoegen om een encryptie bestand aan te maken, lostaant van het macupdate script.
 """
 
-def Update_OS():
-	for connection in connection_list:
-		message("succes", "[+] Connecting to "+username+"@"+connection+" to update mac OS software")
-		child = pxssh.pxssh()
-		child.login(connection, username, password)
-		message("succes", "[+] Updating your mac. Please wait.")
-		child.sendline('sudo softwareupdate -ia --verbose')
-		child.expect('Password:')
-		child.sendline(password)
-		child.sendline()
-		message("succes", "[+] Updating mac OS software")
-		child.interact()
-		child.logout()
-		message("succes", "[+] Done updating mac OS software")
 
 def Main():
 	usage = """
-usage: python controller.py [-c] user ip [-i] or [-u] 
+usage: python controller.py [-c] user ip [-i (for install) or -u (for update)] 
 example: python controller.py -c admin 192.168.0.1 -u
 or user the [-h] for this usage page.
 optional arguments:
@@ -92,18 +76,17 @@ def Text():
 88 YY 88 dP    Yb  YboodP `YbodP' 88     8888Y"  dP    Yb   88   888888 
 
 """)                                
-	message("underline", "Version 1.3")
+	message("underline", "Version 1.4")
 	message("underline", "Created by eLVee")
 	print("")
 
 
 if __name__ == "__main__":
 	Text()
-	fileExist = ifExist('logs/keys.enc', "logs/gen.enc")
-	if fileExist:
-		message("succes", "[+] The script will continue to run now")
-		Main()
-	else:
-		notExist()
-		message("info", "[+] Please run the script again.")
-		exit()
+	# ifExist = updateScriptExist("macupdate.py")
+	# if ifExist:
+	message("succes", "[+] The script will continue to run now")
+	Main()
+	# else:
+	# 	message("info", "[+] Macupdate script is not found on the given ip.")
+	# 	exit()
