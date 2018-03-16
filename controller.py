@@ -37,14 +37,14 @@ optional arguments:
 		if arg[1] == "-c" and arg[4] == "-i":
 			message("succes", "[+] Connecting to "+username+"@"+ip+" to run macupdate.py script (script must be installed!)")
 			child = pxssh.pxssh()
-			child.login(connection, username, password)
+			child.login(ip, username, password)
 			message("succes", "[+] Updating your mac. Please wait.")
 			child.sendline("python macupdate.py -i")
 			exit()
 		elif arg[1] == "-c" and arg[4] == "-u":
 			message("succes", "[+] Connecting to "+username+"@"+ip+" to run macupdate.py script (script must be installed!)")
 			child = pxssh.pxssh()
-			child.login(connection, username, password)
+			child.login(ip, username, password)
 			message("succes", "[+] Updating your mac. Please wait.")
 			child.sendline("python macupdate.py -u")
 			exit()
@@ -85,4 +85,3 @@ if __name__ == "__main__":
 	Text()
 	message("succes", "[+] The script will continue to run now")
 	Main()
-
