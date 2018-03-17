@@ -42,7 +42,9 @@ def Main():
 		else:
 			message("warning", "[+] Error. Please fill in -u or -i as the last argument. These are needed for script settings.")
 			exit()
-			
+	except IndexError:
+		print(args.help)
+
 def Text():
 	message("info", """
                         .dP"Y8 .dP"Y8 88  88                            
@@ -76,3 +78,4 @@ if __name__ == "__main__":
 	logMessage = "The controller script has been run by the user: "
 	createLog(logMessage, "/logs/controller.log")
 	Main()
+
