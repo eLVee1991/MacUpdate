@@ -27,7 +27,7 @@ optional arguments:
 			child.login(ip, username, password)
 			message("succes", "[+] Updating your mac. Please wait.")
 			child.sendline("cd Projects/MacUpdate/1.5/ && python macupdate.py -i")
-			child.prompt()
+			child.prompt(timeout=120)
 			print(child.before)
 			child.logout()
 		elif arg[1] == "-c" and arg[4] == "-u":
@@ -37,7 +37,7 @@ optional arguments:
 			message("succes", "[+] Updating your mac. Please wait.")
 			# Change the line below to the correct folder.
 			child.sendline("cd Projects/MacUpdate/1.5/ && python macupdate.py -u")
-			child.prompt()
+			child.prompt(timeout=120)
 			print(child.before)
 			child.logout()
 		elif arg[1] == "-h":
