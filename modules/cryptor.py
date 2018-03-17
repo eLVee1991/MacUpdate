@@ -19,7 +19,7 @@ def ifExist(file_name, key):
 	else:
 		return False
 
-def notExist(fileName):
+def notExist(file_name):
 	"""
 	This functions creates a new keys.enc file if none exists. Otherise manuallpass will be selected.
 	"""
@@ -29,7 +29,7 @@ def notExist(fileName):
 		if answer == "y" or answer == "Y":
 			randomKeyFile(randomKey)
 			keys = getpass.getpass()
-			encryptor(fileName, randomKey, keys)
+			encryptor(file_name, randomKey, keys)
 			message("succes", "[+] Succes! The password file has been created.")
 			break
 		elif answer == "n" or answer == "N":
