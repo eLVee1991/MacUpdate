@@ -8,8 +8,6 @@ from modules.cryptor import decryptor, ifExist, notExist
 
 
 """
-- een losse logfile aanmaken voor de SSH controller
-- een mogelijkheid maken om geen ip maar een txtfile met ip's in te geven (miss gebruik maken van argparse ipv sys.argv)
 - cryptor gebruiken om het wachtwoord op te slaan voor de ssh controller in een aparte file (cryptor file encrypt & decrypt functies aanpassen) bijv keys2.enc
 hierdoor kan het script als een cronjob draaien. Wel zo hendig :)
 
@@ -35,7 +33,7 @@ def Main():
 	if fileExist:
 		data = decryptor("logs/keys.enc", "logs/gen.enc")
 	else:
-		notExist()
+		notExist("logs/keys.enc")
 		data = getpass.getpass()
 	try:
 		if args.install:
@@ -84,4 +82,3 @@ if __name__ == "__main__":
 	logMessage = "The controller script has been run by the user: "
 	createLog(logMessage, "logs/controller.log")
 	Main()
-
