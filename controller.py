@@ -40,16 +40,8 @@ def Main():
 			scriptSettings == "-u"
 			connectToServer(args.client, args.ipaddress, password, scriptSettings)
 		else:
-			message("warning", args)
+			message("warning", "[+] Error. Please fill in -u or -i as the last argument. These are needed for script settings.")
 			exit()
-
-	except IndexError:
-		print("-"*60)
-		message("error", "[+] No 2nd argument added. See the usage below:")
-		print("-"*60)
-		print("")
-		print(usage)
-		exit()
 
 def Text():
 	message("info", """
@@ -82,6 +74,6 @@ if __name__ == "__main__":
 	Text()
 	message("succes", "[+] The script will continue to run now")
 	logMessage = "The controller script has been run by the user: "
-	createLog(logMessage, "logs/controller.log")
+	createLog(logMessage, "/logs/controller.log")
 	Main()
 
