@@ -1,50 +1,46 @@
 from pexpect import pxssh
 import subprocess
-import sys
 import getpass
+import argparse
 from modules.messageColor import message
+from modules.logFile import createLog
+from modules.cryptor import decryptor, ifExist, notExist
 
-def Main():
-	usage = """
-usage: python controller.py [-c] user ip [-i (for install) or -u (for update)] 
-example: python controller.py -c admin 192.168.0.1 -u
-or user the [-h] for this usage page.
-optional arguments:
-  -c.   Creates a connection to the given ip.
-  -i.   Install Homebrew and brew MAS (Mac Apple Store) so you can use the script.
-  -u.   Update Homebrew, update brew MAS, update OSX and update M.A.S.
-  -h.   Show this help message and exit
+
+"""
+- een losse logfile aanmaken voor de SSH controller
+- een mogelijkheid maken om geen ip maar een txtfile met ip's in te geven (miss gebruik maken van argparse ipv sys.argv)
+- cryptor gebruiken om het wachtwoord op te slaan voor de ssh controller in een aparte file (cryptor file encrypt & decrypt functies aanpassen) bijv keys2.enc
+hierdoor kan het script als een cronjob draaien. Wel zo hendig :)
+
 """
 
-	arg = sys.argv
-	username = arg[2]
-	ip = arg[3]
-	password = getpass.getpass()
+def connectToServer(client, ipaddress, password, settings):
+	"""
+	This function creates a connection to the host via ssh using pxssh.
+	"""
+	message("succes", "[+] Connecting to "+args.client+"@"+args.ipadress+" to run macupdate.py script.")
+	child = pxssh.pxssh()
+	child.login(ipadress, client, password)
+	message("succes", "[+] Settings has been set to "+settings+". Running script on client. Please wait.")
+	# Change the line below to the correct folder.
+	child.sendline("cd Projects/MacUpdate/1.5/ && python macupdate.py "+settings)
+	child.prompt()
+	print(child.before)
+	child.logout()
+
+
+def Main():
+	scriptSettings = ""
 	try:
-		if arg[1] == "-c" and arg[4] == "-i":
-			message("succes", "[+] Connecting to "+username+"@"+ip+" to run macupdate.py script (script must be installed!)")
-			child = pxssh.pxssh()
-			child.login(ip, username, password)
-			message("succes", "[+] Updating your mac. Please wait.")
-			child.sendline("cd Projects/MacUpdate/1.5/ && python macupdate.py -i")
-			child.prompt(timeout=120)
-			print(child.before)
-			child.logout()
-		elif arg[1] == "-c" and arg[4] == "-u":
-			message("succes", "[+] Connecting to "+username+"@"+ip+" to run macupdate.py script (script must be installed!)")
-			child = pxssh.pxssh()
-			child.login(ip, username, password)
-			message("succes", "[+] Updating your mac. Please wait.")
-			# Change the line below to the correct folder.
-			child.sendline("cd Projects/MacUpdate/1.5/ && python macupdate.py -u")
-			child.prompt(timeout=120)
-			print(child.before)
-			child.logout()
-		elif arg[1] == "-h":
-			print(usage)
-			exit()
+		if args.install:
+			scriptsSettings == "-i"
+			connectToServer(args.client, args.ipaddress, password, scriptSettings)
+		if args.update:
+			scriptSettings == "-u"
+			connectToServer(args.client, args.ipaddress, password, scriptSettings)
 		else:
-			message("warning", usage)
+			message("warning", args)
 			exit()
 
 	except IndexError:
@@ -68,13 +64,24 @@ def Text():
 88 YY 88 dP    Yb  YboodP `YbodP' 88     8888Y"  dP    Yb   88   888888 
 
 """)                                
-	message("underline", "Version 1.4")
+	message("underline", "Version 1.5")
 	message("underline", "Created by eLVee")
 	print("")
 
-
 if __name__ == "__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-c", "--client", type=str,
+	                    help="The username of the client")
+	parser.add_argument("-ip", "--ipaddress", type=str,
+	                    help="The ip address of the client")
+	parser.add_argument("-u", "--update", action="store_true", 
+						help="This will set mode to 'update'")
+	parser.add_argument("-i", "--install", action="store_true",
+						help="This will set mode to 'install'")
+	args = parser.parse_args()
 	Text()
 	message("succes", "[+] The script will continue to run now")
+	logMessage = "The controller script has been run by the user: "
+	createLog(logMessage, "/logs/controller.log")
 	Main()
 
