@@ -31,7 +31,6 @@ def connectToServer(client, ipaddress, password, settings):
 
 
 def Main():
-	scriptSettings = ""
 	fileExist = ifExist("logs/keys.enc", "logs/gen.enc")
 	if fileExist:
 		data = decryptor("logs/keys.enc", "logs/gen.enc")
