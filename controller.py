@@ -40,7 +40,7 @@ def Main():
 		data = getpass.getpass()
 	try:
 		if args.install:
-			scriptsSettings == "-i"
+			scriptSettings == "-i"
 			connectToServer(args.client, args.ipaddress, data, scriptSettings)
 		if args.update:
 			scriptSettings == "-u"
