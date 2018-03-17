@@ -19,11 +19,11 @@ optional arguments:
 	arg = sys.argv
 	username = arg[2]
 	ip = arg[3]
+	password = getpass.getpass()
 	try:
 		if arg[1] == "-c" and arg[4] == "-i":
 			message("succes", "[+] Connecting to "+username+"@"+ip+" to run macupdate.py script (script must be installed!)")
 			child = pxssh.pxssh()
-			password = getpass.getpass()
 			child.login(ip, username, password)
 			message("succes", "[+] Updating your mac. Please wait.")
 			child.sendline("python macupdate.py -i")
