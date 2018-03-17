@@ -21,7 +21,7 @@ def connectToServer(client, ipaddress, password, settings):
 	"""
 	message("succes", "[+] Connecting to "+args.client+"@"+args.ipaddress+" to run macupdate.py script.")
 	child = pxssh.pxssh()
-	child.login(ipadress, client, password)
+	child.login(ipaddress, client, password)
 	message("succes", "[+] Settings has been set to "+settings+". Running script on client. Please wait.")
 	# Change the line below to the correct folder.
 	child.sendline("cd Projects/MacUpdate/1.5/ && python macupdate.py "+settings)
