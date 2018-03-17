@@ -26,7 +26,7 @@ optional arguments:
 			child = pxssh.pxssh()
 			child.login(ip, username, password)
 			message("succes", "[+] Updating your mac. Please wait.")
-			child.sendline("python macupdate.py -i")
+			child.sendline("cd Projects/MacUpdate/1.5/ && python macupdate.py -i")
 			child.prompt()
 			print(child.before)
 			child.logout()
@@ -35,7 +35,8 @@ optional arguments:
 			child = pxssh.pxssh()
 			child.login(ip, username, password)
 			message("succes", "[+] Updating your mac. Please wait.")
-			child.sendline("python macupdate.py -u")
+			# Change the line below to the correct folder.
+			child.sendline("cd Projects/MacUpdate/1.5/ && python macupdate.py -u")
 			child.prompt()
 			print(child.before)
 			child.logout()
