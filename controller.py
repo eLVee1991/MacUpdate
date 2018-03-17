@@ -19,7 +19,7 @@ def connectToServer(client, ipaddress, password, settings):
 	"""
 	This function creates a connection to the host via ssh using pxssh.
 	"""
-	message("succes", "[+] Connecting to "+args.client+"@"+args.ipadress+" to run macupdate.py script.")
+	message("succes", "[+] Connecting to "+args.client+"@"+args.ipaddress+" to run macupdate.py script.")
 	child = pxssh.pxssh()
 	child.login(ipadress, client, password)
 	message("succes", "[+] Settings has been set to "+settings+". Running script on client. Please wait.")
