@@ -39,11 +39,10 @@ def Main():
 		data = getpass.getpass()
 	try:
 		if args.install:
-			scriptSettings == "-i"
+			scriptSettings = "-i"
 			connectToServer(args.client, args.ipaddress, data, scriptSettings)
 		if args.update:
-			scriptSettings == "-u"
-
+			scriptSettings = "-u"
 			connectToServer(args.client, args.ipaddress, data, scriptSettings)
 		else:
 			message("warning", "[+] Error. Please fill in -u or -i as the last argument. These are needed for script settings.")
