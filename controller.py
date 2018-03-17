@@ -32,15 +32,23 @@ def connectToServer(client, ipaddress, password, settings):
 
 def Main():
 	scriptSettings = ""
+	fileExist = ifExist("logs/keys.enc", "logs/gen.enc")
+	if fileExist:
+		data = decryptor("logs/keys.enc", "logs/gen.enc")
+	else:
+		notExist()
+		data = getpass.getpass()
 	try:
 		if args.install:
 			scriptsSettings == "-i"
-			connectToServer(args.client, args.ipaddress, password, scriptSettings)
+			connectToServer(args.client, args.ipaddress, data, scriptSettings)
 		if args.update:
 			scriptSettings == "-u"
-			connectToServer(args.client, args.ipaddress, password, scriptSettings)
+
+			connectToServer(args.client, args.ipaddress, data, scriptSettings)
 		else:
 			message("warning", "[+] Error. Please fill in -u or -i as the last argument. These are needed for script settings.")
+			print(args.help)
 			exit()
 	except IndexError:
 		print(args.help)
