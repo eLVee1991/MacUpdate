@@ -44,10 +44,10 @@ def Main():
 			connectToServer(args.client, args.ipaddress, data, scriptSettings)
 		else:
 			message("warning", "[+] Error. Please fill in -u or -i as the last argument. These are needed for script settings.")
-			print(args.help)
+			print(args)
 			exit()
 	except IndexError:
-		print(args.help)
+		print(args)
 
 def Text():
 	message("info", """
@@ -82,3 +82,4 @@ if __name__ == "__main__":
 	logMessage = "The controller script has been run by the user: "
 	createLog(logMessage, "logs/controller.log")
 	Main()
+
