@@ -76,6 +76,6 @@ if __name__ == "__main__":
 	Text()
 	message("succes", "[+] The script will continue to run now")
 	logMessage = "The controller script has been run by the user: "
-	createLog(logMessage, "/logs/controller.log")
+	createLog(logMessage, "logs/controller.log")
 	Main()
 
