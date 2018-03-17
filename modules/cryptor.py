@@ -19,7 +19,7 @@ def ifExist(file_name, key):
 	else:
 		return False
 
-def notExist():
+def notExist(fileName):
 	"""
 	This functions creates a new keys.enc file if none exists. Otherise manuallpass will be selected.
 	"""
